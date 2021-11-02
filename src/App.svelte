@@ -60,8 +60,6 @@
 
     //Balance
     //
-
-    //SMOS API
 </script>
 
 <Navbar {raven} {handleSubmit} {wallet} {ravenSwitch} />
