@@ -16,6 +16,7 @@
     let earnings: any;
     let walletList: any[] = [];
     let walletAmmount: number = 0;
+    let historyData: any;
     let miningData = {
         d1: 0,
         d7: 0,
@@ -31,7 +32,7 @@
         console.log(raven);
     };
 
-    const addWallet = (wallet: string, apiType, data, balance) => {
+    const addWallet = (wallet: string, apiType, data, balance, historyData) => {
         check = false;
         walletList.forEach((value, index) => {
             if (walletList[index].wallet === wallet) {
@@ -46,6 +47,7 @@
                 raven: raven,
                 data: data,
                 balance: balance,
+                historyData: historyData,
             });
             console.log(walletList[-1]);
         }
@@ -59,6 +61,7 @@
             if ((status = 200)) {
                 if (raven) {
                     balance = data.balance;
+                    historyData = data.earningsPPLNS;
                     earnings = data.earnings;
                     console.log(data, status);
                     miningData.d1 = earnings["1d"];
@@ -66,14 +69,26 @@
                     miningData.d14 = earnings["14d"];
                     miningData.d30 = earnings["30d"];
                     miningData.d90 = earnings["90d"];
-                    addWallet(walletAddr, "Raven", miningData, balance);
+                    addWallet(
+                        walletAddr,
+                        "Raven",
+                        miningData,
+                        balance,
+                        historyData
+                    );
                     console.log(miningData);
                     console.log(walletList);
                 } else {
                     if (data.status === "ERROR") {
                         throw new Error(data.error);
                     }
-                    addWallet(walletAddr, "Ethereum", miningData, balance);
+                    addWallet(
+                        walletAddr,
+                        "Ethereum",
+                        miningData,
+                        balance,
+                        historyData
+                    );
                     console.log(walletList);
                 }
             } else {
@@ -98,7 +113,7 @@
     </div>
 {:then}
     <div class="row bg-secondary">
-        <Container {walletList} />
+        <Container {walletList} {raven} />
     </div>
 {:catch err}
     <div class="alert alert-danger" role="alert">

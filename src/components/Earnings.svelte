@@ -10,7 +10,7 @@
 <div class="col-sm-4 m-2 mt-3">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Ganancias</h5>
+            <h5 class="card-title">Pagado</h5>
             {#if raven}
                 <p class="card-text text-center">1D: {Math.round(d1)} RVN</p>
                 <p class="card-text text-center">7D: {Math.round(d7)} RVN</p>
