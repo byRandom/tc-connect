@@ -3,7 +3,7 @@
     export let raven: Boolean;
 </script>
 
-<div class="col-sm-4 m-2 mt-3">
+<div class="m-2 mt-3">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Balance</h5>
@@ -25,6 +25,3 @@
         </div>
     </div>
 </div>
-
-<style>
-</style>

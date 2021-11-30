@@ -30,7 +30,7 @@
             >
                 <div class="accordion-body">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-sm-3">
                             <h4>Ganancias</h4>
                             <Balance balance={id.balance} {raven} />
                             <Earnings
@@ -42,13 +42,13 @@
                                 d90={id.data.d90}
                             />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <Chart
                                 walletID={id.wallet}
                                 historyData={id.historyData}
                             />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <h4>Payouts</h4>
                         </div>
                     </div>
